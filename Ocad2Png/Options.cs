@@ -21,6 +21,15 @@ namespace Ocad2Png
         [Option('a', "antialias", HelpText = "Use anti-aliasing")]
         public bool AntiAlias { get; set; }
 
+        [Option("templates", HelpText = "Draw templates (if any).")]
+        public bool Templates { get; set; }
+
+        [Option("overprint", HelpText = "Use overprint effect on color table entries marked as overprint")]
+        public bool Overprint { get; set; }
+
+        [Option("rgb", HelpText = "Use RGB color space (CMYK color space is the default)")]
+        public bool RgbColorSpace { get; set; }
+
         [ValueOption(0)]
         public string InputFile { get; set; }
 

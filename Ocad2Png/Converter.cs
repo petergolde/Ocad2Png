@@ -54,12 +54,13 @@ namespace Ocad2Png
         private bool Render(string outputFile)
         {
             GDIPlus_Bitmap bitmap;
-            using (var graphicsTarget = new GDIPlus_BitmapGraphicsTarget(width, height, false, CmykColor.FromCmyk(0, 0, 0, 0), bounds, true, new SwopColorConverter(), 1)) {
+            GDIPlus_ColorConverter colorConverter = options.RgbColorSpace ? null : new SwopColorConverter();
+            using (var graphicsTarget = new GDIPlus_BitmapGraphicsTarget(width, height, false, CmykColor.FromCmyk(0, 0, 0, 0), bounds, true, colorConverter, 1)) {
                 RenderOptions renderOpts = new RenderOptions();
                 renderOpts.minResolution = Math.Min(bounds.Height / height, bounds.Width / width);
-                renderOpts.renderTemplates = RenderTemplateOption.MapOnly;
+                renderOpts.renderTemplates = options.Templates ? RenderTemplateOption.MapAndTemplates : RenderTemplateOption.MapOnly;
                 renderOpts.usePatternBitmaps = false;
-                renderOpts.blendOverprintedColors = false;
+                renderOpts.blendOverprintedColors = options.Overprint;
 
                 graphicsTarget.PushAntiAliasing(options.AntiAlias);
 
@@ -127,7 +128,7 @@ namespace Ocad2Png
                 return false;
             }
 
-            map = new Map(new GDIPlus_TextMetrics(), new GDIPlus_FileLoader(Path.GetDirectoryName(options.InputFile)));
+            map = new Map(new GDIPlus_TextMetrics(), new FileLoader(Path.GetDirectoryName(options.InputFile), console));
 
             try {
                 InputOutput.ReadFile(options.InputFile, map);
