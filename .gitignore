@@ -210,3 +210,8 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/Libraries/MapModel/copy_mapmodel.bat
+
+But include libraries
+!/Libraries/MapModel/[Rr]elease/
+!/Libraries/MapModel/[Dd]ebug/
