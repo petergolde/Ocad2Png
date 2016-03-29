@@ -60,5 +60,10 @@ namespace Ocad2Png
         }
 
 
+        public override SD.Color ToColor(CmykColor cmykColor)
+        {
+            return CmykToRgbColor(cmykColor);
+        }
+
     }
 }

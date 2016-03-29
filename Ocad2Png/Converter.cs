@@ -17,6 +17,7 @@ namespace Ocad2Png
         Map map;
         int width, height;
         RectangleF bounds;
+        string inputFile;
 
         public const int DEFAULT_SIZE = 4096;
 
@@ -26,8 +27,10 @@ namespace Ocad2Png
             this.console = console;
         }
 
-        public bool Convert()
+        public bool Convert(string inputFile)
         {
+            this.inputFile = inputFile;
+
             if (!LoadMap())
                 return false;
 
@@ -48,7 +51,7 @@ namespace Ocad2Png
             if (options.OutputFile != null)
                 return options.OutputFile;
             else
-                return Path.ChangeExtension(options.InputFile, ".png");
+                return Path.ChangeExtension(inputFile, ".png");
         }
 
         private bool Render(string outputFile)
@@ -123,15 +126,15 @@ namespace Ocad2Png
 
         bool LoadMap()
         {
-            if (!File.Exists(options.InputFile)) {
-                console.WriteLine("Input file \"{0}\" does not exist.", options.InputFile);
+            if (!File.Exists(inputFile)) {
+                console.WriteLine("Input file \"{0}\" does not exist.", inputFile);
                 return false;
             }
 
-            map = new Map(new GDIPlus_TextMetrics(), new FileLoader(Path.GetDirectoryName(options.InputFile), console));
+            map = new Map(new GDIPlus_TextMetrics(), new FileLoader(Path.GetDirectoryName(inputFile), console));
 
             try {
-                InputOutput.ReadFile(options.InputFile, map);
+                InputOutput.ReadFile(inputFile, map);
             }
             catch (OcadFileFormatException e) {
                 console.WriteLine(e.Message);

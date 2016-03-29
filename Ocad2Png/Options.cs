@@ -30,8 +30,8 @@ namespace Ocad2Png
         [Option("rgb", HelpText = "Use RGB color space (CMYK color space is the default)")]
         public bool RgbColorSpace { get; set; }
 
-        [ValueOption(0)]
-        public string InputFile { get; set; }
+        [ValueList(typeof(List<string>))]
+        public IList<string> InputFiles { get; set; }
 
         [HelpOption]
         public string GetUsage()
