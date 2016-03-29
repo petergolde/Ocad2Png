@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using PurplePen.Graphics2D;
 
 namespace Ocad2Png
 {
@@ -28,6 +31,11 @@ namespace Ocad2Png
                 return 2;
             }
 
+            if (options.SameAreaForAll && options.InputFiles.Count >= 2 && !options.AreaToDraw.HasValue) {
+                // Get areas from all input files and merge.
+                options.AreaToDraw = MergeBounds(options.InputFiles);
+            }
+
             try {
                 bool success = true;
 
@@ -43,6 +51,20 @@ namespace Ocad2Png
                 Console.WriteLine("ERROR: {0}", e.Message);
                 return 1;
             }
+        }
+
+        private static RectangleF? MergeBounds(IList<string> inputFiles)
+        {
+            RectangleF? merged = null;
+            foreach (string fileName in inputFiles) {
+                RectangleF? bounds = Converter.GetMapBounds(fileName);
+                if (!merged.HasValue)
+                    merged = bounds;
+                else if (bounds.HasValue)
+                    merged = RectangleF.Union(merged.Value, bounds.Value);
+            }
+
+            return merged;
         }
 
         static IList<string> ExpandWildcards(IList<string> fileList)
@@ -83,7 +105,26 @@ namespace Ocad2Png
                 return false;
             }
 
+            options.AreaToDraw = null;
+            if (options.Area != null) {
+                float x1, y1, x2, y2;
+                string[] values = options.Area.Split(new char[] { ',' }, StringSplitOptions.None);
+                if (values.Length != 4 || !TryParseCoord(values[0], out x1) || !TryParseCoord(values[1], out y1) ||
+                    !TryParseCoord(values[2], out x2) || !TryParseCoord(values[3], out y2)) {
+                    Console.WriteLine("Invalid syntax for --area; must specify 4 numbers separated by commas.");
+                    return false;
+                }
+
+                options.AreaToDraw = Geometry.RectFromPoints(x1, y1, x2, y2);
+            }
+
             return true;
+        }
+
+        // Parse a coordinate with the invariant culture.
+        private static bool TryParseCoord(string s, out float f)
+        {
+            return float.TryParse(s, NumberStyles.Integer | NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out f);
         }
     }
 }

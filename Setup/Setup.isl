@@ -342,6 +342,7 @@
 		<row><td>CommandLine.dll</td><td>{5624A612-FA48-40F3-A9AE-4040C10F3A33}</td><td>INSTALLDIR</td><td>2</td><td/><td>commandline.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>GDIPlusNative.dll</td><td>{13A5B69B-09B8-4C6F-B226-4FD8FCC1477E}</td><td>INSTALLDIR</td><td>2</td><td/><td>gdiplusnative.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Graphics2D.dll</td><td>{1D684A7E-4865-4EA8-8087-40AD2A246132}</td><td>INSTALLDIR</td><td>2</td><td/><td>graphics2d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{37D3FF77-26E5-4EB8-A76A-BCF10AC157FB}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>MapModel.dll</td><td>{96A63955-CF2C-4959-AC1B-825360A5D54D}</td><td>INSTALLDIR</td><td>2</td><td/><td>mapmodel.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Map_GDIPlus.dll</td><td>{BC2BABD2-AF9C-47CB-BB3B-B9A0E4367170}</td><td>INSTALLDIR</td><td>2</td><td/><td>map_gdiplus.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Ocad2Png.Content_Files</td><td>{5D930A54-A667-422C-B425-EFEBA4DA7262}</td><td>INSTALLDIR</td><td>2</td><td/><td>ocad2png.content_files</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1057,6 +1058,7 @@
 		<row><td>INSTALLDIR</td><td>CommandLine.dll</td></row>
 		<row><td>INSTALLDIR</td><td>GDIPlusNative.dll</td></row>
 		<row><td>INSTALLDIR</td><td>Graphics2D.dll</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>INSTALLDIR</td><td>MapModel.dll</td></row>
 		<row><td>INSTALLDIR</td><td>Map_GDIPlus.dll</td></row>
 		<row><td>INSTALLDIR</td><td>Ocad2Png.Content_Files</td></row>
@@ -1200,6 +1202,7 @@
 		<col def="l255">Name</col>
 		<col def="L255">Value</col>
 		<col def="s72">Component_</col>
+		<row><td>NewEnvironment1</td><td>##ID_STRING2##</td><td>##ID_STRING3##</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 	</table>
 
 	<table name="Error">
@@ -1872,6 +1875,7 @@
 		<row><td>AlwaysInstall</td><td>CommandLine.dll</td></row>
 		<row><td>AlwaysInstall</td><td>GDIPlusNative.dll</td></row>
 		<row><td>AlwaysInstall</td><td>Graphics2D.dll</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>MapModel.dll</td></row>
 		<row><td>AlwaysInstall</td><td>Map_GDIPlus.dll</td></row>
 		<row><td>AlwaysInstall</td><td>Ocad2Png.Content_Files</td></row>
@@ -2041,6 +2045,7 @@
 		<row><td>CommandLine.dll</td><td/><td/><td>_E3F05AA6_23BC_4FF3_8760_796367EAD8B8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>GDIPlusNative.dll</td><td/><td/><td>_F8683414_A24E_4774_B712_15CEB04D9C1D_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Graphics2D.dll</td><td/><td/><td>_17630742_62A3_4EC2_8C40_EB60C049C601_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_FB661985_2730_492B_B648_1F2B31AFAA88_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>MapModel.dll</td><td/><td/><td>_ACAB5659_5624_4A09_8E06_3C0E95BBD7D8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Map_GDIPlus.dll</td><td/><td/><td>_D6A2BC36_6CEA_4944_A319_EF8FEA06BAAD_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Ocad2Png.Content_Files</td><td/><td/><td>_37BBD9FC_6863_4E46_BA38_ED11865DC8BE_FILTER</td><td/><td/><td/><td/></row>
@@ -2438,7 +2443,7 @@
 		<row><td>DVD-18</td><td>Express</td><td>0</td><td>http://</td><td>0</td><td>install</td><td>install</td><td>[LocalAppDataFolder]Downloaded Installations</td><td>0</td><td>http://www.installengine.com/Msiengine20</td><td>http://www.installengine.com/Msiengine20</td><td>0</td><td>http://www.installengine.com/cert05/isengine</td><td>0</td><td/><td/><td/><td>3</td><td>http://www.installengine.com/cert05/dotnetfx</td><td>0</td><td>1033</td><td/><td/><td/><td/><td/><td>3</td><td/><td>http://www.installengine.com/Msiengine30</td><td/></row>
 		<row><td>DVD-5</td><td>Express</td><td>0</td><td>http://</td><td>0</td><td>install</td><td>install</td><td>[LocalAppDataFolder]Downloaded Installations</td><td>0</td><td>http://www.installengine.com/Msiengine20</td><td>http://www.installengine.com/Msiengine20</td><td>0</td><td>http://www.installengine.com/cert05/isengine</td><td>0</td><td/><td/><td/><td>3</td><td>http://www.installengine.com/cert05/dotnetfx</td><td>0</td><td>1033</td><td/><td/><td/><td/><td/><td>3</td><td/><td>http://www.installengine.com/Msiengine30</td><td/></row>
 		<row><td>DVD-9</td><td>Express</td><td>0</td><td>http://</td><td>0</td><td>install</td><td>install</td><td>[LocalAppDataFolder]Downloaded Installations</td><td>0</td><td>http://www.installengine.com/Msiengine20</td><td>http://www.installengine.com/Msiengine20</td><td>0</td><td>http://www.installengine.com/cert05/isengine</td><td>0</td><td/><td/><td/><td>3</td><td>http://www.installengine.com/cert05/dotnetfx</td><td>0</td><td>1033</td><td/><td/><td/><td/><td/><td>3</td><td/><td>http://www.installengine.com/Msiengine30</td><td/></row>
-		<row><td>SingleImage</td><td>Express</td><td>0</td><td>http://</td><td>0</td><td>install</td><td>install</td><td>[LocalAppDataFolder]Downloaded Installations</td><td>1</td><td>http://www.installengine.com/Msiengine20</td><td>http://www.installengine.com/Msiengine20</td><td>0</td><td>http://www.installengine.com/cert05/isengine</td><td>0</td><td/><td/><td/><td>3</td><td>http://www.installengine.com/cert05/dotnetfx</td><td>0</td><td>1033</td><td/><td/><td/><td/><td/><td>3</td><td/><td>http://www.installengine.com/Msiengine30</td><td>0CAEE48BDD7D872F</td></row>
+		<row><td>SingleImage</td><td>Express</td><td>0</td><td>http://</td><td>0</td><td>install</td><td>install</td><td>[LocalAppDataFolder]Downloaded Installations</td><td>1</td><td>http://www.installengine.com/Msiengine20</td><td>http://www.installengine.com/Msiengine20</td><td>0</td><td>http://www.installengine.com/cert05/isengine</td><td>0</td><td/><td/><td/><td>3</td><td>http://www.installengine.com/cert05/dotnetfx</td><td>0</td><td>1033</td><td/><td/><td/><td/><td/><td>3</td><td/><td>http://www.installengine.com/Msiengine30</td><td/></row>
 		<row><td>WebDeployment</td><td>Express</td><td>0</td><td>http://</td><td>0</td><td>setup</td><td>Default</td><td>[LocalAppDataFolder]Downloaded Installations</td><td>2</td><td>http://www.Installengine.com/Msiengine20</td><td>http://www.Installengine.com/Msiengine20</td><td>0</td><td>http://www.installengine.com/cert05/isengine</td><td>0</td><td/><td/><td/><td>3</td><td>http://www.installengine.com/cert05/dotnetfx</td><td>0</td><td>1033</td><td/><td/><td/><td/><td/><td>3</td><td/><td>http://www.installengine.com/Msiengine30</td><td/></row>
 	</table>
 
@@ -3735,6 +3740,8 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-509326033</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-509326033</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>-509326033</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>*=-PATH</td><td>0</td><td/><td>-375121270</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>[~];[INSTALLDIR]</td><td>0</td><td/><td>-375080406</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-509326033</td></row>
 	</table>
 
@@ -3981,7 +3988,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{8288F102-17A3-4EE2-AD44-258BAAD92AFA}</td></row>
 		<row><td>ISUSSignature</td><td>{BB9F8AC4-47B2-476D-A49C-DA14ED8FE75E}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewObjects,viewAppFiles,viewRelease,viewUI</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewObjects,viewAppFiles,viewRelease,viewUI,viewEnvironmentVariables</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>

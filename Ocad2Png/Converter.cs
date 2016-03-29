@@ -65,7 +65,7 @@ namespace Ocad2Png
                 renderOpts.usePatternBitmaps = false;
                 renderOpts.blendOverprintedColors = options.Overprint;
 
-                graphicsTarget.PushAntiAliasing(options.AntiAlias);
+                graphicsTarget.PushAntiAliasing(! options.Pixelate);
 
                 using (map.Read()) {
                     map.Draw(graphicsTarget, bounds, renderOpts, null);
@@ -105,9 +105,13 @@ namespace Ocad2Png
 
         private void DetermineBounds()
         {
-            // TODO: Allow command line option to override.
-            using (map.Read()) {
-                bounds = map.Bounds;
+            if (options.AreaToDraw.HasValue) {
+                bounds = options.AreaToDraw.Value;
+            }
+            else {
+                using (map.Read()) {
+                    bounds = map.Bounds;
+                }
             }
 
             // zero width or height will cause problems.
@@ -126,22 +130,41 @@ namespace Ocad2Png
 
         bool LoadMap()
         {
-            if (!File.Exists(inputFile)) {
-                console.WriteLine("Input file \"{0}\" does not exist.", inputFile);
-                return false;
+            map = LoadMap(inputFile, console);
+            return (map != null);
+        }
+        
+        static Map LoadMap(string fileName, TextWriter console)
+        {
+            if (!File.Exists(fileName)) {
+                console.WriteLine("Input file \"{0}\" does not exist.", fileName);
+                return null;
             }
 
-            map = new Map(new GDIPlus_TextMetrics(), new FileLoader(Path.GetDirectoryName(inputFile), console));
+            Map map = new Map(new GDIPlus_TextMetrics(), new FileLoader(Path.GetDirectoryName(fileName), console));
 
             try {
-                InputOutput.ReadFile(inputFile, map);
+                InputOutput.ReadFile(fileName, map);
             }
             catch (OcadFileFormatException e) {
                 console.WriteLine(e.Message);
-                return false;
+                return null;
             }
 
-            return true;
+            return map;
+        }
+
+        public static RectangleF? GetMapBounds(string fileName)
+        {
+            Map map = LoadMap(fileName, TextWriter.Null);
+            if (map != null) {
+                using (map.Read()) {
+                    return map.Bounds;
+                }
+            }
+            else {
+                return null;
+            }
         }
     }
 }
